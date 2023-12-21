@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import BenefitsUsingTaskSync from "./BenefitsUsingTaskSync";
 import WhichPersonUse from "./WhichPersonUse";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <WhichPersonUse></WhichPersonUse>
+            <BenefitsUsingTaskSync></BenefitsUsingTaskSync>
         </div>
     );
 };
