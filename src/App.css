@@ -1,0 +1,14 @@
+.wrapper {
+  transition: .3s;
+}
+
+.wrapper:hover {
+  background-color: #3B82F6;
+  color: black;
+  box-shadow: 0 0 5px #3B82F6,
+              0 0 25px #3B82F6,
+              0 0 50px #3B82F6,
+              0 0 200px #3B82F6;
+  -webkit-box-reflect: below 2px linear-gradient(transparent, #0005);
+  border: none;
+}
