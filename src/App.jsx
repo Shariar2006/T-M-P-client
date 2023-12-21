@@ -8,7 +8,10 @@ function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Outlet></Outlet>
+
+      <div className='max-w-[1440px] mx-auto p-8'>
+        <Outlet></Outlet>
+      </div>
     </div>
   )
 }
