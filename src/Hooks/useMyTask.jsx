@@ -11,7 +11,7 @@ const useMyTask = () => {
     const { refetch, data: myTask = []}= useQuery({
         queryKey: ['myTask', user?.email],
         queryFn: async()=>{
-            const res = await axiosPublic.get(`/createTask?email=${user.email}`);
+            const res = await axiosPublic.get(`/myTask?email=${user.email}`);
             return res.data
         }
     })
