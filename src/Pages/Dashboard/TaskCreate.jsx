@@ -1,11 +1,38 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form"
+import { AuthContext } from "../../Components/AuthContext/AuthProvider";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const TaskCreate = () => {
-    const { register, handleSubmit, formState: { errors }, } = useForm()
+    const { user } = useContext(AuthContext)
+    const axiosPublic = useAxiosPublic()
+    const { register, handleSubmit, reset } = useForm()
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log(data)
 
+        const taskItem = {
+            title: data.title,
+            email: user?.email,
+            status: 'to-do',
+            description: data.description,
+            dateline: data.dateline,
+            priority: data.priority,
+            }
+            console.log(taskItem)
+
+            const menuRes = await axiosPublic.post('/createTask', taskItem)
+            if (menuRes.data.insertedId) {
+                reset()
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Added a New task",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
     }
 
     return (
@@ -24,9 +51,9 @@ const TaskCreate = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-blue-500 text-xl">Name</span>
+                            <span className="label-text text-blue-500 text-xl">Description</span>
                         </label>
-                        <input type="text" {...register("name", { required: true })} placeholder="Name" className=" input w-80 input-bordered text-blue-500 text-base" />
+                        <input type="text" {...register("description", { required: true })} placeholder="Description" className=" input w-80 input-bordered text-blue-500 text-base" />
                         
                     </div>
                 </div>
@@ -36,20 +63,20 @@ const TaskCreate = () => {
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-blue-500 text-xl">Name</span>
+                            <span className="label-text text-blue-500 text-xl">Dateline</span>
                         </label>
-                        <input type="text" {...register("name", { required: true })} placeholder="Name" className=" input w-80 input-bordered text-blue-500 text-base" />
+                        <input type="date" {...register("dateline", { required: true })} placeholder="Dateline" className=" input w-80 input-bordered text-blue-500 text-base" />
                         
                     </div>
                     <div className="form-control w-full ">
                             <label className="label">
-                                <span className="label-text text-blue-500 text-xl">Category</span>
+                                <span className="label-text text-blue-500 text-xl">Priority</span>
                             </label>
-                            <select defaultValue='' {...register("category")} className="select select-bordered input w-80 text-blue-500 text-base">
-                                <option disabled value=''>Select a category</option>
-                                <option value="breakfast">Breakfast</option>
-                                <option value="lunch">Lunch</option>
-                                <option value="dinner">Dinner</option>
+                            <select defaultValue='' {...register("priority")} className="select select-bordered input w-80 text-blue-500 text-base">
+                                <option disabled value=''>Select a Priority</option>
+                                <option value="Low">Low</option>
+                                <option value="Moderate">Moderate</option>
+                                <option value="High">High</option>
                             </select>
                         </div>
                 </div>

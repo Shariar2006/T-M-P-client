@@ -1,9 +1,11 @@
-import React from 'react';
+import useMyTask from '../../Hooks/useMyTask';
 
 const TaskManagement = () => {
+    const [myTask] = useMyTask()
+    console.log(myTask)
     return (
         <div>
-            kdljalfkjd;fl <br /> ljsflkajd
+            
         </div>
     );
 };
