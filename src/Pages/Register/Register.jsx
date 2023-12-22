@@ -44,7 +44,7 @@ const Register = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left hidden lg:block">
                         <img src="https://assets-v2.lottiefiles.com/a/567e9d6a-116d-11ee-adcc-c362dfe23881/hrMdhw3flV.gif" alt="" />
@@ -54,23 +54,23 @@ const Register = () => {
                             <p className=' text-blue-500 text-4xl text-center  mb-5'>Register now!</p>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-blue-500 text-xl ">Name</span>
+                                    <span className="label-text text-blue-500 text-base ">Name</span>
                                 </label>
-                                <input type="text" {...register("name", { required: true })} placeholder="Name" className=" input input-bordered text-blue-500 text-lg  " />
+                                <input type="text" {...register("name", { required: true })} placeholder="Name" className=" input input-bordered text-blue-500 text-base  " />
                                 {errors.name && <span className='text-red-600  mt-1'>Name is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-blue-500 text-xl ">Email</span>
+                                    <span className="label-text text-blue-500 text-base ">Email</span>
                                 </label>
-                                <input type="email" {...register("email", { required: true })} placeholder="Email" className=" input input-bordered text-blue-500 text-lg  " />
+                                <input type="email" {...register("email", { required: true })} placeholder="Email" className=" input input-bordered text-blue-500 text-base  " />
                                 {errors.email && <span className='text-red-600  mt-1'>Email is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-blue-500 text-xl ">Password</span>
+                                    <span className="label-text text-blue-500 text-base ">Password</span>
                                 </label>
-                                <input type="password" {...register("password", { required: true, maxLength: 20, minLength: 6, pattern: /(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}/ })} name='password' placeholder="Password" className="  input text-blue-500 text-lg  input-bordered" />
+                                <input type="password" {...register("password", { required: true, maxLength: 20, minLength: 6, pattern: /(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}/ })} name='password' placeholder="Password" className="  input text-blue-500 text-base  input-bordered" />
                                 {errors.password?.type === 'required' && <span className="text-red-600  mt-1">Password is required</span>}
                                 {errors.password?.type === 'minLength' && <span className="text-red-600  mt-1">Password must be 6 characters</span>}
                                 {errors.password?.type === 'maxLength' && <span className="text-red-600  mt-1">Password maximum 20 characters</span>}
@@ -79,9 +79,9 @@ const Register = () => {
 
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-blue-500 text-xl ">Photo url</span>
+                                    <span className="label-text text-blue-500 text-base ">Photo url</span>
                                 </label>
-                                <input type="url" {...register("photo")} placeholder="Photo URL" className=" input input-bordered text-blue-500 text-lg  " />
+                                <input type="url" {...register("photo")} placeholder="Photo URL" className=" input input-bordered text-blue-500 text-base  " />
                             </div>
 
 
