@@ -37,17 +37,25 @@ const Login = () => {
                 //     badge: 'Bronze'
                 // }
                 console.log(res.user)
+                Swal.fire({
+                    icon: "success",
+                    title: "Good job!",
+                    text: "You are successfully Logged in!",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+                navigate(form, { replace: true })
                 // axiosPublic.post('/users', userInfo)
                 .then(res=>{
                     console.log(res.data)
-                    Swal.fire({
-                        icon: "success",
-                        title: "Good job!",
-                        text: "You are successfully Logged in!",
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
-                    navigate(form, { replace: true })
+                    // Swal.fire({
+                    //     icon: "success",
+                    //     title: "Good job!",
+                    //     text: "You are successfully Logged in!",
+                    //     showConfirmButton: false,
+                    //     timer: 2000
+                    // });
+                    // navigate(form, { replace: true })
                 })
             })
             .catch(error => { console.log(error) })
